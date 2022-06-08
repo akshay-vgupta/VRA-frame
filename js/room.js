@@ -283,7 +283,7 @@ class Room {
 				})
 
 			}
-		}, 20)
+		}, 2)
 
 		// this.onAuth("USER")
 	}

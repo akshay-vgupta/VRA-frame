@@ -1,7 +1,7 @@
-const fakeBodyCount = 1
-const fakeBodySteps = 1000
+const fakeBodyCount = 0
+const fakeBodySteps = 10
 
-const trackedKeys = ["size", "color", "fireStrength", "rotation", "position", "paritype", "displayName", "label", "labelWidth"]
+const trackedKeys = ["size", "color", "fireStrength", "rotation", "position", "paritype", "displayName", "label", "labelWidth","colorhex"]
 
 // Decorate the head of our guests
 Vue.component("obj-head", {
@@ -166,6 +166,47 @@ Vue.component("obj-fire", {
 
 
 })
+Vue.component("obj-light", {
+	template: `
+	<a-sphere
+	@click="click"
+	:light="colorHex"
+	id="sun"
+	position="-6.000 50 52.578"
+	radius="1"
+	scale="2.5 2.5 2.5"
+	color="#ff8800"
+	></a-sphere>
+
+	`,
+
+	// Values computed on the fly
+	computed: {
+		colorHex() {
+			
+			return `type:hemisphere; color:${this.obj.colorhex}`
+		}
+	},
+
+	methods: {
+		click() {
+			this.obj.colorhex = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+			console.log(this.obj.colorhex)
+			// Tell the server about this action
+			this.obj.post()
+		}
+	},
+
+	// this function runs once when this object is created
+	mounted() {
+
+	},
+
+
+	props: ["obj"]
+
+
+})
 
 
 
@@ -174,60 +215,39 @@ Vue.component("obj-world", {
 	template: `
 	<a-entity>
 		<!--------- SKYBOX --------->
-		<a-sky color="lightblue"></a-sky>
+		
 
 		<a-plane 
+		material=" src: #grass-albedo"
 			roughness="1"
 			shadow 
-			color="hsl(140,40%,40%)"
 			height="100" 
 			width="100" 
 			rotation="-90 0 0">
 		</a-plane>
 
 		<!---- lights ----> 
-		<a-entity light="type: ambient; intensity: 0.4;" color="white"></a-entity>
-		<a-light type="directional" 
-			position="0 0 0" 
-			rotation="-90 0 0" 
-			intensity="0.4"
-			castShadow target="#directionaltarget">
-			<a-entity id="directionaltarget" position="-10 0 -20"></a-entity>
-		</a-light>
 
-		<a-cone 
+
+
+		<a-entity id="tree" gltf-model="url(img/textures/lowpoly_tree/scene.gltf)" scale="0.005 0.005 0.005"
 			v-for="(tree,index) in trees"
 			:key="'tree' + index"
 			shadow 
 
-			:color="tree.color.toHex()"
-			:base-radius="tree.size.z" 
-			:height="tree.size.y" 
-
-			segments-radial=10
-			segments-height=1
 			
 			:rotation="tree.rotation.toAFrame()"
 			:position="tree.position.toAFrame()">
-		</a-cone>
+		</a-entity>
 
 		
 
-		<a-box 
+		<a-entity id="cloud" gltf-model="url(img/textures/cloud1/scene.gltf)" scale="2 2 2"
 			v-for="(rock,index) in rocks"
 			:key="'rock' + index"
 			shadow 
-
-			roughness="1"
-
-			:color="rock.color.toHex()"
-			:width="rock.size.x" 
-			:depth="rock.size.z" 
-			:height="rock.size.y" 
-			
-			:rotation="rock.rotation.toAFrame()"
 			:position="rock.position.toAFrame()">
-		</a-box>
+		</a-entity>
 
 	</a-entity>
 		`,
@@ -244,32 +264,32 @@ Vue.component("obj-world", {
 		// If you only use "noise" and not "random", 
 		// everyone will have the same view. (Wordle-style!)
 		let trees = []
-		let count = 30
+		let count = 10
 		for (var i = 0; i < count; i++) {
 			let h = 6 + 4*noise(i) // Size from 1 to 3
 			let tree = new LiveObject(undefined, { 
 				size: new THREE.Vector3(.3, h, .3),
 				color: new Vector(noise(i*50)*30 + 160, 100, 40 + 10*noise(i*10))
 			})
-			let r = 20 + 10*noise(i*40)
-			let theta = 2*noise(i*10)
-			tree.position.setToCylindrical(r, theta, h/2)
+			let r = 20 + 10*noise(i*80)
+			let theta = 3*noise(i*20)
+			tree.position.setToCylindrical(r, theta, 0)
 			tree.lookAt(0,1,0)
 			trees.push(tree)
 		}
 
 		let rocks = []
-		let rockCount = 20
+		let rockCount = 30
 		for (var i = 0; i < rockCount; i++) {
-			let h = 1.2 + noise(i*100) // Size from 1 to 3
+			let h = 1.2 + noise(i*10) // Size from 1 to 3
 			let rock = new LiveObject(undefined, { 
 				size: new THREE.Vector3(h, h, h),
 				color: new Vector(noise(i)*30 + 140, 0, 40 + 20*noise(i*3))
 			})
-			let r = 4 + 1*noise(i*1)
+			let r = 60 + 10*noise(i*10)
 			// Put them on the other side
-			let theta = 2*noise(i*10) + 3
-			rock.position.setToCylindrical(r, theta, h*.3)
+			let theta = 3*noise(i*100)
+			rock.position.setToCylindrical(r, theta, 30)
 			// Look randomly
 			rock.lookAt(Math.random()*100,Math.random()*100,Math.random()*100)
 			rocks.push(rock)
@@ -301,6 +321,16 @@ Vue.component("obj-world", {
 		fire.position.set(0, 0, 0)
 		fire.fireStrength = 1
 
+		let fire1 = new LiveObject(this.room, {
+			paritype: "light",  // Tells it which type to use
+			uid: "fire1",
+			isTracked: true,
+			onUpdate({t, dt, frameCount}) {
+				// Change the fire's color
+			}
+		})
+		fire1.position.set(-6.000, 50, 52.578)
+		fire1.colorhex='#e69756'
 		// let fire2 = new LiveObject(this.room, {
 		// 	paritype: "fire",  // Tells it which type to use
 		// 	uid: "fire2",

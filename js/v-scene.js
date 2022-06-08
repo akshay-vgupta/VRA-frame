@@ -37,7 +37,12 @@ Vue.component("room-scene", {
 		
 		<!--------- ASSETS ---------->
 		<a-assets>
-			<img id="sky" src="img/textures/sky-night.png">
+			<img id="sky" src="img/textures/sky-sunset.png">
+			<img
+			id="grass-albedo"
+			src="img/textures/grass.png"
+		  />
+		  <a-asset-item id="cloud" src="/img/textures/cloud/cloud.gltf"></a-asset-item>
 		</a-assets>
 
 		<!--------- CAMERA --------->
@@ -83,7 +88,10 @@ Vue.component("room-scene", {
 			<live-object  v-for="obj in room.objects" :key="obj.uid" :obj="obj" />
 		</a-entity>
 
-
+	
+		<a-entity gltf-model="url(img/textures/mountain/scene.gltf)" scale="1 1 1" position="-29.352 0 -32.699"></a-entity>
+		<a-entity gltf-model="url(img/textures/mountainlp/scene.gltf)" scale="25 25 25" position="37.312 9.000 -37.147"></a-entity>
+		<a-sky src="#sky" position="0 -100 0"></a-sky>
 	</a-scene>`,
 
 	methods: {

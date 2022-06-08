@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mountain
+* source:	https://sketchfab.com/3d-models/mountain-12b29bb3ff554a6fbad3d6b6a2519236
+* author:	BlastOffGames (https://sketchfab.com/BlastOffGames)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mountain" (https://sketchfab.com/3d-models/mountain-12b29bb3ff554a6fbad3d6b6a2519236) by BlastOffGames (https://sketchfab.com/BlastOffGames) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
