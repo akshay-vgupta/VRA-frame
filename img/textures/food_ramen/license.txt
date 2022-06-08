@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chinese food truck with ramen
+* source:	https://sketchfab.com/3d-models/chinese-food-truck-with-ramen-7497db59636f45eaa7ff29142cd7bcf7
+* author:	Brave_Iruka (https://sketchfab.com/Brave_Iruka)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chinese food truck with ramen" (https://sketchfab.com/3d-models/chinese-food-truck-with-ramen-7497db59636f45eaa7ff29142cd7bcf7) by Brave_Iruka (https://sketchfab.com/Brave_Iruka) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

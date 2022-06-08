@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fast Food Poster
+* source:	https://sketchfab.com/3d-models/fast-food-poster-bcfcadb9d38b4bd4a952d1161f63da3f
+* author:	mercurio22 (https://sketchfab.com/mercurio22)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fast Food Poster" (https://sketchfab.com/3d-models/fast-food-poster-bcfcadb9d38b4bd4a952d1161f63da3f) by mercurio22 (https://sketchfab.com/mercurio22) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

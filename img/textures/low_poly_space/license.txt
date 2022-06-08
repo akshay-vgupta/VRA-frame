@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low poly space
+* source:	https://sketchfab.com/3d-models/low-poly-space-d3e8da35d7a74a7097a09fdc1e8a9815
+* author:	Mihir (https://sketchfab.com/hacked909)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low poly space" (https://sketchfab.com/3d-models/low-poly-space-d3e8da35d7a74a7097a09fdc1e8a9815) by Mihir (https://sketchfab.com/hacked909) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
