@@ -93,7 +93,7 @@ Vue.component("room-scene", {
 		<a-entity gltf-model="img/textures/food_truck/scene.gltf" scale="0.4 0.4 0.4" position="3.21039 0.89976 -28.30654" rotation="0 90 0"></a-entity>
 		<a-entity gltf-model="img/textures/food_cart/scene.gltf" scale="0.0012 0.0012 0.0012" position="3.41553 0.8763w1 -32.75099" rotation="0 90 0"></a-entity>		
 		<a-entity gltf-model="img/textures/food_ramen/scene.gltf" scale="0.2 0.2 0.2" position="5.62167 2.46728 -35.91853" rotation="0 45 0"></a-entity>		
-		w<a-entity gltf-model="img/textures/food_sushi/scene.gltf" scale="0.003 0.003 0.003" position="10.00862 0.93901 -34.15805" rotation=""></a-entity>		
+		<a-entity gltf-model="img/textures/food_sushi/scene.gltf" scale="0.003 0.003 0.003" position="10.00862 0.93901 -34.15805" rotation=""></a-entity>		
 		<a-entity gltf-model="img/textures/food_hotdog/scene.gltf" scale="0.15 0.15 0.15" position="14.16126 0.9088 -33.87652" rotation="0 -40 0"></a-entity>
 		<a-entity gltf-model="img/textures/food_japan/scene.gltf" scale="0.005 0.005 0.005" position="16.75631 0.89035 -29.93584" rotation="0 -90 0"></a-entity>
 
