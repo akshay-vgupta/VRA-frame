@@ -85,45 +85,104 @@ Vue.component("obj-head", {
 })
 
 
+// Vue.component("obj-fire", {
+// 	template: `
+// 	<a-entity>
+// 		<obj-axes scale="5 5 5" v-if="false" />
+// 		<a-sphere 
+// 			color="grey"
+// 			radius=2 
+// 			scale="1 .3 1" 
+// 			roughness=1
+// 			segments-height="5"
+// 			segments-width="10"
+// 			theta-start=0
+// 			theta-length=60
+// 			position="0 -.4 0"
+// 			>
+// 		</a-sphere>
+// 		<a-cone
+// 			position="0 .2 0"
+// 			@click="click"
+// 			:animation="heightAnimation"
+// 			:color="obj.color.toHex()"
+// 			height=.2
+// 			radius-bottom=".2"
+
+// 			:scale="(obj.fireStrength*.2 + 1) + ' ' + .1*obj.fireStrength + ' ' + (obj.fireStrength*.2 + 1)"
+// 			:material="fireMaterial">
+
+// 		</a-cone>
+
+// 		<a-light
+// 			:animation="intensityAnimation"
+
+// 			position="0 1 0"
+// 			intensity="2"
+// 			:color="obj.color.toHex()"
+// 			type="point"
+// 			:distance="obj.fireStrength*4 + 10"
+// 			decay="2">
+// 		</a-light>
+// 	</a-entity>
+
+// 	`,
+
+// 	// Values computed on the fly
+// 	computed: {
+// 		fireMaterial() {
+// 			return `emissive:${this.obj.color.toHex(.2)}`
+// 		},
+		
+// 		animationSpeed() {
+// 			return 500
+// 		},
+// 		intensityAnimation() {
+// 			return `property: intensity; from:.3; to:.6; dir:alternate;dur: ${this.animationSpeed}; easing:easeInOutQuad;loop:true`
+// 		},
+// 		heightAnimation() {
+// 			return `property: height; from:${this.obj.fireStrength};to:${this.obj.fireStrength*2}; dir:alternate;dur: 500; easing:easeInOutQuad;loop:true`
+// 		}
+// 	},
+
+// 	methods: {
+// 		click() {
+// 			this.obj.fireStrength += 1
+// 			this.obj.fireStrength = this.obj.fireStrength%10 + 1
+
+// 			// Tell the server about this action
+// 			this.obj.post()
+// 		}
+// 	},
+
+// 	// this function runs once when this object is created
+// 	mounted() {
+
+// 	},
+
+
+
+// 	props: ["obj"]
+
+
+// })
 Vue.component("obj-fire", {
 	template: `
 	<a-entity>
-		<obj-axes scale="5 5 5" v-if="false" />
-		<a-sphere 
-			color="grey"
-			radius=2 
-			scale="1 .3 1" 
-			roughness=1
-			segments-height="5"
-			segments-width="10"
-			theta-start=0
-			theta-length=60
-			position="0 -.4 0"
+
+		<a-sphere
+			position="44.19735 18.89099 -30.09343"
+			@click="click"
+			:color="obj.colorhex"
+			radius= "1"
+			scale="4 4 4"
+			:material="fireMaterial"
 			>
 		</a-sphere>
-		<a-cone
-			position="0 .2 0"
-			@click="click"
-			:animation="heightAnimation"
-			:color="obj.color.toHex()"
-			height=.2
-			radius-bottom=".2"
+		<a-light type="hemisphere" 
+		position="44.19735 18.89099 -30.09343"
+		:color="obj.colorhex" ></a-light>
 
-			:scale="(obj.fireStrength*.2 + 1) + ' ' + .1*obj.fireStrength + ' ' + (obj.fireStrength*.2 + 1)"
-			:material="fireMaterial">
-
-		</a-cone>
-
-		<a-light
-			:animation="intensityAnimation"
-
-			position="0 1 0"
-			intensity="2"
-			:color="obj.color.toHex()"
-			type="point"
-			:distance="obj.fireStrength*4 + 10"
-			decay="2">
-		</a-light>
 	</a-entity>
 
 	`,
@@ -133,7 +192,6 @@ Vue.component("obj-fire", {
 		fireMaterial() {
 			return `emissive:${this.obj.color.toHex(.2)}`
 		},
-		
 		animationSpeed() {
 			return 500
 		},
@@ -151,6 +209,9 @@ Vue.component("obj-fire", {
 			this.obj.fireStrength = this.obj.fireStrength%10 + 1
 
 			// Tell the server about this action
+			// Vue.set(this.color.v,0, (noise(10*.02)+1)*180)
+			this.obj.colorhex = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+			console.log(this.obj.colorhex)
 			this.obj.post()
 		}
 	},
@@ -279,7 +340,7 @@ Vue.component("obj-world", {
 		}
 
 		let rocks = []
-		let rockCount = 30
+		let rockCount = 45
 		for (var i = 0; i < rockCount; i++) {
 			let h = 1.2 + noise(i*10) // Size from 1 to 3
 			let rock = new LiveObject(undefined, { 
@@ -320,17 +381,17 @@ Vue.component("obj-world", {
 
 		fire.position.set(0, 0, 0)
 		fire.fireStrength = 1
-
-		let fire1 = new LiveObject(this.room, {
-			paritype: "light",  // Tells it which type to use
-			uid: "fire1",
-			isTracked: true,
-			onUpdate({t, dt, frameCount}) {
-				// Change the fire's color
-			}
-		})
-		fire1.position.set(-6.000, 50, 52.578)
-		fire1.colorhex='#e69756'
+		fire.colorhex='#e69756'
+		// let fire1 = new LiveObject(this.room, {
+		// 	paritype: "light",  // Tells it which type to use
+		// 	uid: "fire1",
+		// 	isTracked: true,
+		// 	onUpdate({t, dt, frameCount}) {
+		// 		// Change the fire's color
+		// 	}
+		// })
+		// fire1.position.set(-6.000, 50, 52.578)
+		// fire1.colorhex='#e69756'
 		// let fire2 = new LiveObject(this.room, {
 		// 	paritype: "fire",  // Tells it which type to use
 		// 	uid: "fire2",

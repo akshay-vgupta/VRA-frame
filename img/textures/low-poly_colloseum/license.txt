@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low-Poly Colloseum
+* source:	https://sketchfab.com/3d-models/low-poly-colloseum-700b1c9df4284492a7f8e0edee51f34c
+* author:	kishi (https://sketchfab.com/kishi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low-Poly Colloseum" (https://sketchfab.com/3d-models/low-poly-colloseum-700b1c9df4284492a7f8e0edee51f34c) by kishi (https://sketchfab.com/kishi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
