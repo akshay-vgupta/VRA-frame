@@ -408,7 +408,17 @@ Vue.component("obj-world", {
 		
 		let grammar = new tracery.createGrammar(  {
 			songStyle : ", played as #song.a#, on #musicModifier# #instrument#",
-			songStyle1: ", Genre is #musicGenre# #musicPlays# with a feeling of #musicAdj# on #instrument#",
+			songStyle1: ", Game Genre is #gameGenre#, slowly #musicPlays# acrros the room #musicAdv#, how do you feel",
+			gameGenre: ["Sandbox",
+				"Real-time strategy (RTS)",
+				"Shooters (FPS and TPS)",
+				"Multiplayer online battle arena (MOBA)",
+				"Role-playing (RPG, ARPG, and More)",
+				"Simulation and sports",
+				"Puzzlers and party games",
+				"Action-adventure",
+				"Survival and horror",
+				"Platformer"],
 			instrument : ["ukulele", "vocals", "guitar", "clarinet", "piano", "harmonica", "sitar", "tabla", "harp", "dulcimer", "violin", "accordion", "concertina", "fiddle", "tamborine", "bagpipe", "harpsichord", "euphonium"],
 			musicModifier : ["heavy", "soft", "acoustic", "psychedelic", "light", "orchestral", "operatic", "distorted", "echoing", "melodic", "atonal", "arhythmic", "rhythmic", "electronic"],
 			musicGenre : ["metal", "electofunk", "jazz", "salsa", "klezmer", "zydeco", "blues", "mariachi", "flamenco", "pop", "rap", "soul", "gospel", "buegrass", "swing", "folk"],
@@ -420,7 +430,7 @@ Vue.component("obj-world", {
 		}, {})
 		grammar.addModifiers(baseEngModifiers)
 
-		const campfireSongs = ["Lonely Goatherd", "On top of spaghetti", "Princess Pat", "BINGO", "Old Mac Donald", "Going on a Bear Hunt", "The Green Grass Grew All Around", "Home on the Range", "John Jacob Jingleheimer Schmitt", "The Wheels on the Bus", "If I had a Hammer"]
+		const campfireSongs = ["Megalovania - Undertale", "Live and Learn - Sonic Adventure 2", "Live and Learn - Sonic Adventure 2", "Zelda Theme - The Legend of Zelda", "Hopes and Dreams - Undertale", "Super Smash Bros Brawl Theme", "Still Alive - Portal", "Gerudo Valley - The Legend of Zelda: Ocarina of Time", "You Will Know Our Names - Xenoblade Chronicles", "Crystal Area - Kirby Super Star","Halo-OST"]
 		this.room.detailText = "Campfire time!"
 
 		this.room.time.onSecondChange((second) => {
