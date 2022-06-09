@@ -170,19 +170,16 @@ Vue.component("obj-fire", {
 	template: `
 	<a-entity>
 
-		<a-sphere
-			position="44.19735 18.89099 -30.09343"
-			@click="click"
-			:color="obj.colorhex"
-			radius= "1"
-			scale="4 4 4"
-			:material="fireMaterial"
-			>
-		</a-sphere>
+		<a-entity 
+		gltf-model="img/textures/interact_button/scene.gltf" 
+		scale="4 4 4"
+		position="-2.01887 1.87571 -18.24404"
+		@click="click"
+		:material="fireMaterial"
+		:color="obj.colorhex"></a-entity>
 		<a-light type="hemisphere" 
 		position="44.19735 18.89099 -30.09343"
 		:color="obj.colorhex" ></a-light>
-
 	</a-entity>
 
 	`,
