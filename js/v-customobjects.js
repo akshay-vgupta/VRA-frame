@@ -176,10 +176,12 @@ Vue.component("obj-fire", {
 		position="-2.01887 1.87571 -18.24404"
 		@click="click"
 		:material="fireMaterial"
-		:color="obj.colorhex"></a-entity>
+		:color="obj.colorhex"
+		sound="src: #halo; on: click"></a-entity>
 		<a-light type="hemisphere" 
 		position="44.19735 18.89099 -30.09343"
-		:color="obj.colorhex" ></a-light>
+		:color="obj.colorhex" 
+		></a-light>
 	</a-entity>
 
 	`,
@@ -406,6 +408,7 @@ Vue.component("obj-world", {
 		
 		let grammar = new tracery.createGrammar(  {
 			songStyle : ", played as #song.a#, on #musicModifier# #instrument#",
+			songStyle1: ", Genre is #musicGenre# #musicPlays# with a feeling of #musicAdj# on #instrument#",
 			instrument : ["ukulele", "vocals", "guitar", "clarinet", "piano", "harmonica", "sitar", "tabla", "harp", "dulcimer", "violin", "accordion", "concertina", "fiddle", "tamborine", "bagpipe", "harpsichord", "euphonium"],
 			musicModifier : ["heavy", "soft", "acoustic", "psychedelic", "light", "orchestral", "operatic", "distorted", "echoing", "melodic", "atonal", "arhythmic", "rhythmic", "electronic"],
 			musicGenre : ["metal", "electofunk", "jazz", "salsa", "klezmer", "zydeco", "blues", "mariachi", "flamenco", "pop", "rap", "soul", "gospel", "buegrass", "swing", "folk"],
@@ -427,7 +430,7 @@ Vue.component("obj-world", {
 				let tick = second/rate
 				let index = second % campfireSongs.length
 				let song = campfireSongs[index]
-				this.room.detailText =  song + grammar.flatten("#songStyle#")
+				this.room.detailText =  song + grammar.flatten("#songStyle1#")
 			}
 		})
 	},

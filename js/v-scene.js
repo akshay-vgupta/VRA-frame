@@ -109,7 +109,7 @@ Vue.component("room-scene", {
 		<a-entity gltf-model="img/textures/mountainlp/scene.gltf" scale="25 25 25" position="37.312 9.000 -0.07098"></a-entity>		
 		<a-entity gltf-model="img/textures/mountainlp/scene.gltf" scale="25 25 25" position="38.3995 9.000 17.98553"></a-entity>
 		
-		<a-entity gltf-model="img/textures/sacred_ring_halo/scene.gltf" sound="src: #halo; autoplay: true" scale="0.05 0.05 0.05" position="150.96815 87.04602 -50.33329" animation-mixer="clip: Take 001" rotation="10 -29.999999999999996 0"></a-entity>
+		<a-entity gltf-model="img/textures/sacred_ring_halo/scene.gltf" scale="0.05 0.05 0.05" position="150.96815 87.04602 -50.33329" animation-mixer="clip: Take 001" rotation="10 -29.999999999999996 0"></a-entity>
 		<a-entity gltf-model="img/textures/low_poly_forest/scene.gltf" scale="0.8 0.8 0.8" position="54.31049 4.51615 17.29497" rotation="0 270 0" ></a-entity>
 
 		<a-entity gltf-model="img/textures/castelo/scene.gltf" scale="1 0.8 1" position="-80.16759 0.19071 40.73395" rotation="0 90 0"></a-entity>
