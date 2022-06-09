@@ -15,19 +15,20 @@ Vue.component("obj-head", {
 			>
 			<obj-axes scale=".1 .1 .1" v-if="false" />
 		</a-sphere>
-
 		<a-cone v-for="(spike,index) in spikes"
-			:key="index"
-			:height="spike.size"
-			:radius-bottom="headSize*.2"
-			:position="spike.position.toAFrame(0, .2, 0)"
-			:rotation="spike.rotation.toAFrame()"
-			:color="obj.color.toHex(.5*Math.sin(index))" 
-				
-			>
-		
-		</a-cone>
-
+		:key="index"
+		:height="spike.size"
+		:radius-bottom="headSize*.2"
+		:position="spike.position.toAFrame(0, -.2, 0)"
+		:rotation="spike.rotation.toAFrame()"
+		:color="obj.color.toHex(.5*Math.sin(index))" 
+			
+		>
+	
+	</a-cone>
+		<a-cylinder :color="obj.color.toHex(0.6)" material="" geometry="" scale="0.15 0.5 0.15" position="0 -0.4 0"></a-cylinder>
+		<a-entity gltf-model="img/textures/bucket_hat/scene.gltf" scale="0.002 0.002 0.002" position="0 -0.11651 0"></a-entity>
+		<a-entity gltf-model="img/textures/heart-shaped_glasses/scene.gltf" scale="0.08 0.08 0.08" position="0.09824 0.08914 -0.20669" rotation="0 180 0"></a-entity>
 		<!-- NOSE -->
 		<a-cone
 		
@@ -35,7 +36,7 @@ Vue.component("obj-head", {
 			:radius-bottom="headSize*.4"
 			position="0 0 -.18"
 			
-			:color="obj.color.toHex(.3)" 
+			:color="obj.color.toHex(.6)" 
 			
 		>
 	
@@ -52,21 +53,20 @@ Vue.component("obj-head", {
 	},
 
 	data() {
-		let spikeCount = Math.random()*10 + 10
+		let spikeCount = 4
 		let spikes = []
 		let h2 = Math.random() - .5
 			
 		for (var i = 0; i < spikeCount; i++) {
-			let h = .1
 			let spike = new LiveObject(undefined, { 
 
-				size: Math.random()*.4 + .2,
+				size: .35,
 				color: new Vector(noise(i)*30 + 140, 0, 40 + 20*noise(i*3))
 			})
-			let r = .2
+			let r = -.2
 			// Put them on the other side
-			let theta = 4*noise(i*10) + 3
-			spike.position.setToCylindrical(r, theta, h*.3)
+			let theta = 6*noise(i)
+			spike.position.setToCylindrical(r, theta, -0.2)
 			// Look randomly
 			spike.lookAt(0, h2, 0)
 			spike.rotateX(-Math.PI/2)
