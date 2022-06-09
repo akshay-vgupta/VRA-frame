@@ -111,7 +111,13 @@ Vue.component("room-scene", {
 		<a-entity gltf-model="img/textures/simple_sphere/scene.gltf" scale="0.2 0.2 0.2" position="44.19735 18.89099 -30.09343"></a-entity>
 
 		<a-entity gltf-model="img/textures/low_poly_forest/scene.gltf" scale="0.8 0.8 0.8" position="54.31049 4.51615 17.29497" rotation="0 270 0"></a-entity>
+
 		<a-entity gltf-model="img/textures/castelo/scene.gltf" scale="1 0.8 1" position="-80.16759 0.19071 40.73395" rotation="0 90 0"></a-entity>
+		<a-entity gltf-model="img/textures/bench_low_poly/scene.gltf" scale="0.01 0.01 0.01" position="-5.03153 0.19071 43.0000" rotation="0 90 0"></a-entity>		
+		<a-entity gltf-model="img/textures/bench_low_poly/scene.gltf" scale="0.01 0.01 0.01" position="-5.03153 0.19071 40.0000" rotation="0 90 0"></a-entity>
+		<a-entity gltf-model="img/textures/bench_low_poly/scene.gltf" scale="0.01 0.01 0.01" position="3.79327 0.19071 43.0000" rotation="0 -90 0"></a-entity>
+		<a-entity gltf-model="img/textures/bench_low_poly/scene.gltf" scale="0.01 0.01 0.01" position="3.79327 0.19071 40.0000" rotation="0 -90 0"></a-entity>
+
 		<a-entity gltf-model="img/textures/low-poly_colloseum/scene.gltf" scale="0.6 0.6 0.6" position="9.96476 0.64505 -31.69327" rotation=""></a-entity>
 		<a-entity gltf-model="img/textures/low_poly_space/scene.gltf" scale="0.05 0.05 0.05" position="-91.01636 113.21063 -357.22484" rotation="0 45 0"></a-entity>
 		<a-entity id="second-light" rotation="0 180 0" position="36.68738 13.37239 22.11361" light="color: #2ae594; intensity: 1; type: spot" scale="3 3 3"></a-entity>
